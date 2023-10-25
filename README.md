@@ -2,7 +2,7 @@
 
 This codebase provides the official PyTorch implementation of our NeurIPS 2023 paper:
 
-> **[FreeMask: Synthetic Images with Dense Annotations Make Stronger Segmentation Models]()**</br>
+> **[FreeMask: Synthetic Images with Dense Annotations Make Stronger Segmentation Models](https://arxiv.org/abs/2310.15160)**</br>
 > Lihe Yang, Xiaogang Xu, Bingyi Kang, Yinghuan Shi, Hengshuang Zhao</br>
 > *In Conference on Neural Information Processing Systems (NeurIPS), 2023*</br>
 > [[`Paper`](https://arxiv.org/abs/2310.15160)] [[`Datasets`](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/liheyang_connect_hku_hk/ElmCo8xcr1tIk8XS0RK5UHwBJGxM7eEQPiP0LQbCJ3rlAA?e=TgEcUc)] [[`Models`](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/liheyang_connect_hku_hk/EpTP2pjpiD1Np3dgdSxDrQIBqWc4x_95KA-7VVUa34iPJg?e=4Vv5uZ)] [[`Logs`](./training-logs)] [[`BibTeX`](#citation)]
@@ -76,7 +76,7 @@ pip install "mmdet>=3.0.0rc4"
 **Note:**
 
 - Please modify the dataset path ``data_root`` and ``data_root_syn`` in config files.
-- If you use SegFormer, please convert the pre-trained MiT backbones following [this](https://github.com/open-mmlab/mmsegmentation/tree/main/configs/segformer#usage) and put them under ``pretrain`` directory.
+- If you use SegFormer, please convert the pre-trained MiT backbones following [this](https://github.com/open-mmlab/mmsegmentation/tree/main/configs/segformer#usage), and put ``mit_b2.pth``, ``mit_b4.pth`` under ``pretrain`` directory.
 
 ### Usage
 
