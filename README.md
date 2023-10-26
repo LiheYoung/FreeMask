@@ -53,7 +53,7 @@ class="center">
 We share our already processed synthetic ADE20K and COCO-Stuff-164K datasets below. The ADE20K-Synthetic dataset is **20x larger** than its real counterpart, while the COCO-Synthetic is **6x larger** than its real counterpart.
 
 - [Download ADE20K-Synthetic](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EUrly7IQm7NEqzxqdmnV3yoBNUBUqLinRc5-lOxDHqjTcA?e=ktHbTR)
-- [Download COCO-Synthetic](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/Ebox543FPmZKmMkfeZ875eMBn4dDwEQ1MnwjUriJHQPlqA?e=eLoyQa)
+- [Download COCO-Synthetic](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/Ebox543FPmZKmMkfeZ875eMBn4dDwEQ1MnwjUriJHQPlqA?e=3wTqvM)
 
 
 ## Getting Started
