@@ -5,7 +5,7 @@ This codebase provides the official PyTorch implementation of our NeurIPS 2023 p
 > **[FreeMask: Synthetic Images with Dense Annotations Make Stronger Segmentation Models](https://arxiv.org/abs/2310.15160)**</br>
 > Lihe Yang, Xiaogang Xu, Bingyi Kang, Yinghuan Shi, Hengshuang Zhao</br>
 > *In Conference on Neural Information Processing Systems (NeurIPS), 2023*</br>
-> [[`Paper`](https://arxiv.org/abs/2310.15160)] [[`Datasets`](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/liheyang_connect_hku_hk/ElmCo8xcr1tIk8XS0RK5UHwBJGxM7eEQPiP0LQbCJ3rlAA?e=TgEcUc)] [[`Models`](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/liheyang_connect_hku_hk/EpTP2pjpiD1Np3dgdSxDrQIBqWc4x_95KA-7VVUa34iPJg?e=4Vv5uZ)] [[`Logs`](./training-logs)] [[`BibTeX`](#citation)]
+> [[`Paper`](https://arxiv.org/abs/2310.15160)] [[`Datasets`](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/liheyang_connect_hku_hk/ElmCo8xcr1tIk8XS0RK5UHwBtF9Ny1mW7Ng5t2kpwCSwtQ?e=yYgJRT)] [[`Models`](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/liheyang_connect_hku_hk/EpTP2pjpiD1Np3dgdSxDrQIBeOqhHU3b4xgipn4xfWpw6Q?e=Mmo59H)] [[`Logs`](./training-logs)] [[`BibTeX`](#citation)]
 
 ## TL;DR
 
@@ -29,31 +29,31 @@ class="center">
 
 |     Model   |  Backbone |  Real Images  |  + Synthetic Images |  Gain ($\Delta$)  |  Download  |
 |:-----------:|:---------:|:-------:|:-----------:|:----------:|:----------:|
-| Mask2Former |   Swin-T  |  48.7  |     52.0     |  **+3.3**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EcUp1OL0FVNEp-xVZLSzYHIB5LG4d7fqWpNClb66pWeFXQ?e=c1sJaA) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_mask2former_swin-t_mIoU-52.0.log) |
-| Mask2Former |   Swin-S  |  51.6  |     53.3     |  **+1.7**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EZZfCOuGkABHk4n--wNB5tIBhFEsEl_-G9GqCf4IdpINSg?e=u6Yi7l) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_mask2former_swin-s_mIoU-53.3.log) |
-| Mask2Former |   Swin-B  |  52.4  |     53.7     |  **+1.3**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/Ecg-Dq34SiBFms2SfXY8GQABhnhXmvsQ6xT2jC0Jvau2nw?e=CGG9IY) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_mask2former_swin-b_mIoU-53.7.log) |
-| SegFormer   |   MiT-B2  |  45.6  |     47.9     |  **+2.3**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EcPbfSNm5UNBlNqpQpSf5L0BA5ll-9kQ3IPfAsFeUB8uXg?e=b3kpqe) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_segformer_mit-b2_mIoU-47.9.log) |
-| SegFormer   |   MiT-B4  |  48.5  |     50.6     |  **+2.1**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EWlhL6eFOA1KoEQ3x1OhwzIB7FFWM-M52OnxrLfJ0CIE2w?e=4eLoCA) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_segformer_mit-b4_mIoU-50.6.log) |
+| Mask2Former |   Swin-T  |  48.7  |     52.0     |  **+3.3**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EcUp1OL0FVNEp-xVZLSzYHIBdeXwBJCkxxEAM3CPCa4tTw?e=mYKbhY) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_mask2former_swin-t_mIoU-52.0.log) |
+| Mask2Former |   Swin-S  |  51.6  |     53.3     |  **+1.7**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EZZfCOuGkABHk4n--wNB5tIBK4W5ABndnX9LizsJc3MT_A?e=a3djjd) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_mask2former_swin-s_mIoU-53.3.log) |
+| Mask2Former |   Swin-B  |  52.4  |     53.7     |  **+1.3**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/Ecg-Dq34SiBFms2SfXY8GQABt4MtbmnYtXhA9vqY42eGbA?e=ayIXyl) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_mask2former_swin-b_mIoU-53.7.log) |
+| SegFormer   |   MiT-B2  |  45.6  |     47.9     |  **+2.3**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EcPbfSNm5UNBlNqpQpSf5L0BhJnq-GAvc3VFOchYwGjJRQ?e=wFIKkR) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_segformer_mit-b2_mIoU-47.9.log) |
+| SegFormer   |   MiT-B4  |  48.5  |     50.6     |  **+2.1**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EWlhL6eFOA1KoEQ3x1OhwzIBb_p636aaazEJiBcuwgMvIA?e=JZgxcT) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_segformer_mit-b4_mIoU-50.6.log) |
 | Segmenter   |   ViT-S   |  46.2  |     47.9     |  **+1.7**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ETTAWgdEeOtPv_p3UImc0DUBPeK6TCdE1DaO5PvK400ncg?e=UiGUtm) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_segmenter_vit-s_mIoU-47.9.log) |
-| Segmenter   |   ViT-B   |  49.6  |     51.1     |  **+1.5**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EaxESzST9lVAhpklQ2Bk550BOUxwgSFPlXMgcEOKgVK8Xg?e=jcOR1L) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_segmenter_vit-b_mIoU-51.1.log) |
+| Segmenter   |   ViT-B   |  49.6  |     51.1     |  **+1.5**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EaxESzST9lVAhpklQ2Bk550BgFnA1W6GH-UkChFn35A8SA?e=y5rueW) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/ade20k_segmenter_vit-b_mIoU-51.1.log) |
 
 ### COCO-Stuff-164K
 
 |     Model   |  Backbone |  Real Images |  + Synthetic Images  |  Gain ($\Delta$)  |  Download  |
 |:-----------:|:---------:|:-------:|:-----------:|:----------:|:----------:|
-| Mask2Former |   Swin-T  |  44.5  |     46.4     |  **+1.9**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EbWduyNYlq1KpdUFPUrFuncBn9aN2iVRIpCLAqjqZ2LpLw?e=KTtoon) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_mask2former_swin-t_mIoU-46.4.log) |
-| Mask2Former |   Swin-S  |  46.8  |     47.6     |  **+0.8**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EWYgBhTQIalKsNAaoA9Zsi8BQa7979--5FvfJMcA4RLLVg?e=PPekxc) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_mask2former_swin-s_mIoU-47.6.log) |
-| SegFormer   |   MiT-B2  |  43.5  |     44.2     |  **+0.7**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ERVPEcdsK_FMmHXn7Aa_sS0Bnyg442yHKD_1WeW-iTNDDQ?e=Cqlinl) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segformer_mit-b2_mIoU-44.2.log) |
-| SegFormer   |   MiT-B4  |  45.8  |     46.6     |  **+0.8**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EeTD9uVM3o1FpHIGhSjEJOgBNZRIAnyw-MpYoWp_vpzVDQ?e=LiG6EA) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segformer_mit-b4_mIoU-46.6.log) |
-| Segmenter   |   ViT-S   |  43.5  |     44.8     |  **+1.3**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ESO3ijf4rkZIqmA44Hc3e4oBhNhhSe6uDNaQIvBwH0c0rw?e=H6OfJB) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segmenter_vit-s_mIoU-44.8.log) |
-| Segmenter   |   ViT-B   |  46.0  |     47.5     |  **+1.5**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ERw3YLH7i-pBgiS8kWwfErABeW_Br7V7ahgiSwB9yMMu-g?e=fpks5I) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segmenter_vit-b_mIoU-47.5.log) |
+| Mask2Former |   Swin-T  |  44.5  |     46.4     |  **+1.9**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EbWduyNYlq1KpdUFPUrFuncBb2a-Y6ZieBdoiaQXEROgZw?e=ElXGD8) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_mask2former_swin-t_mIoU-46.4.log) |
+| Mask2Former |   Swin-S  |  46.8  |     47.6     |  **+0.8**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EWYgBhTQIalKsNAaoA9Zsi8BjWpYkqDd-umGdO2Rk-o3kw?e=ps3Rbd) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_mask2former_swin-s_mIoU-47.6.log) |
+| SegFormer   |   MiT-B2  |  43.5  |     44.2     |  **+0.7**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ERVPEcdsK_FMmHXn7Aa_sS0BlbMWrAUTK24Yf3qW5Vhe5w?e=2UNh4v) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segformer_mit-b2_mIoU-44.2.log) |
+| SegFormer   |   MiT-B4  |  45.8  |     46.6     |  **+0.8**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EeTD9uVM3o1FpHIGhSjEJOgBlSZdcomjpF_j4xEDI7NlaA?e=wPFrNW) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segformer_mit-b4_mIoU-46.6.log) |
+| Segmenter   |   ViT-S   |  43.5  |     44.8     |  **+1.3**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ESO3ijf4rkZIqmA44Hc3e4oBlBsJakFCDmC18MEjpPc1LA?e=LkJJQ8) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segmenter_vit-s_mIoU-44.8.log) |
+| Segmenter   |   ViT-B   |  46.0  |     47.5     |  **+1.5**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ERw3YLH7i-pBgiS8kWwfErABvoNXfyMF8rq-hWl2xcar4w?e=Px3N0X) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segmenter_vit-b_mIoU-47.5.log) |
 
 ## High-Quality Synthetic Datasets
 
 We share our already processed synthetic ADE20K and COCO-Stuff-164K datasets below. The ADE20K-Synthetic dataset is **20x larger** than its real counterpart, while the COCO-Synthetic is **6x larger** than its real counterpart.
 
-- [Download ADE20K-Synthetic](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EUrly7IQm7NEqzxqdmnV3yoBvvBxVWofKyXJ22UL9y7-vA)
-- [Download COCO-Synthetic](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/Ebox543FPmZKmMkfeZ875eMB_8t7U2SkQblv-qGivqnkHQ?e=bWoKba)
+- [Download ADE20K-Synthetic](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EUrly7IQm7NEqzxqdmnV3yoBNUBUqLinRc5-lOxDHqjTcA?e=ktHbTR)
+- [Download COCO-Synthetic](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/Ebox543FPmZKmMkfeZ875eMBn4dDwEQ1MnwjUriJHQPlqA?e=eLoyQa)
 
 
 ## Getting Started
