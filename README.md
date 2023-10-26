@@ -48,19 +48,15 @@ class="center">
 | Segmenter   |   ViT-S   |  43.5  |     44.8     |  **+1.3**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ESO3ijf4rkZIqmA44Hc3e4oBhNhhSe6uDNaQIvBwH0c0rw?e=H6OfJB) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segmenter_vit-s_mIoU-44.8.log) |
 | Segmenter   |   ViT-B   |  46.0  |     47.5     |  **+1.5**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ERw3YLH7i-pBgiS8kWwfErABeW_Br7V7ahgiSwB9yMMu-g?e=fpks5I) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segmenter_vit-b_mIoU-47.5.log) |
 
-## Getting Started
-
-
-### High-Quality Synthetic Datasets
+## High-Quality Synthetic Datasets
 
 We share our already processed synthetic ADE20K and COCO-Stuff-164K datasets below. The ADE20K-Synthetic dataset is **20x larger** than its real counterpart, while the COCO-Synthetic is **6x larger** than its real counterpart.
 
 - [Download ADE20K-Synthetic](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/EUrly7IQm7NEqzxqdmnV3yoBvvBxVWofKyXJ22UL9y7-vA)
 - [Download COCO-Synthetic](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/Ebox543FPmZKmMkfeZ875eMB_8t7U2SkQblv-qGivqnkHQ?e=bWoKba)
 
-### ADE20K and COCO-Stuff-164K Real Datasets
 
-Follow the [instructions](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/user_guides/2_dataset_prepare.md#prepare-datasets) to download. The COCO annotations need to be pre-processed following the instructions.
+## Getting Started
 
 ### Installation
 
@@ -72,6 +68,10 @@ mim install "mmcv>=2.0.0"
 pip install "mmsegmentation>=1.0.0"
 pip install "mmdet>=3.0.0rc4"
 ```
+
+### Download Real Datasets
+
+Follow the [instructions](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/user_guides/2_dataset_prepare.md#prepare-datasets) to download the ADE20K and COCO-Stuff-164K real datasets. The COCO annotations need to be pre-processed following the instructions.
 
 **Note:**
 
