@@ -48,6 +48,7 @@ class="center">
 | Segmenter   |   ViT-S   |  43.5  |     44.8     |  **+1.3**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ESO3ijf4rkZIqmA44Hc3e4oBlBsJakFCDmC18MEjpPc1LA?e=LkJJQ8) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segmenter_vit-s_mIoU-44.8.log) |
 | Segmenter   |   ViT-B   |  46.0  |     47.5     |  **+1.5**  | [ckpt](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/liheyang_connect_hku_hk/ERw3YLH7i-pBgiS8kWwfErABvoNXfyMF8rq-hWl2xcar4w?e=Px3N0X) \| [log](https://github.com/LiheYoung/FreeMask/tree/main/training-logs/coco_segmenter_vit-b_mIoU-47.5.log) |
 
+
 ## High-Quality Synthetic Datasets
 
 We share our already processed synthetic ADE20K and COCO-Stuff-164K datasets below. The ADE20K-Synthetic dataset is **20x larger** than its real counterpart, while the COCO-Synthetic is **6x larger** than its real counterpart.
@@ -73,15 +74,45 @@ pip install "mmdet>=3.0.0rc4"
 
 Follow the [instructions](https://github.com/open-mmlab/mmsegmentation/blob/main/docs/en/user_guides/2_dataset_prepare.md#prepare-datasets) to download the ADE20K and COCO-Stuff-164K real datasets. The COCO annotations need to be pre-processed following the instructions.
 
+### Download Synthetic Datasets
+
+Please see [above](#high-quality-synthetic-datasets).
+
 **Note:**
 
-- Please modify the dataset path ``data_root`` and ``data_root_syn`` in config files.
+- Please modify the dataset path ``data_root`` (real images) and ``data_root_syn`` (synthetic images) in config files.
 - If you use SegFormer, please convert the pre-trained MiT backbones following [this](https://github.com/open-mmlab/mmsegmentation/tree/main/configs/segformer#usage), and put ``mit_b2.pth``, ``mit_b4.pth`` under ``pretrain`` directory.
 
 ### Usage
 
 ```bash
 bash dist_train.sh <config> 8
+```
+
+## Generate and Pre-process Synthetic Images (Optional)
+
+We have provided the processed synthetic images [above](#high-quality-synthetic-datasets). You can directly use them to train a stronger segmentation model. However, if you want to generate additional images by yourself, we introduce the generation and pre-processing steps below.
+
+### Generate Synthetic Images
+
+We strictly follow [FreestyleNet](https://github.com/essunny310/FreestyleNet) for initial image generation. Please refer to their instructions. You can change the random seed to produce multiple synthetic images from a semantic mask.
+
+### Pre-process Synthetic Images
+
+Our work focuses on this part.
+
+#### Filter out Noisy Synthetic Regions
+
+```bash
+python preprocess/filter.py <config> <checkpoint> --real-img-path <> --real-mask-path <> --syn-img-path <> --syn-mask-path <> --filtered-mask-path <>
+```
+
+We use the [pre-trained SegFormer-B4 model](https://github.com/open-mmlab/mmsegmentation/tree/main/configs/segformer) to calculate class-wise mean loss on real images and then filter out noisy synthetic regions.
+
+#### Re-sample Synthetic Images based on Mask-level Hardness
+
+```bash
+python preprocess/resample.py --real-mask-path <> --syn-img-path <> --syn-mask-path <> --resampled-syn-img-path <> --resampled-syn-mask-path <> 
 ```
 
 
